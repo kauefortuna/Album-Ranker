@@ -89,3 +89,47 @@
 
 
 
+/* --- Carousel mobile styles --- */
+@media (max-width: 600px) {
+  .carousel {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+  }
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .group,
+  .groupReverse {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* keep continuous animation on mobile */
+    animation: spin 30s linear infinite;
+  }
+  .groupReverse {
+    animation: spin2 30s linear infinite;
+  }
+
+  /* remove hover-pause for mobile */
+  @media (hover: hover) and (pointer: fine) {
+    .group:hover,
+    .groupReverse:hover,
+    .carousel-wrapper:hover .group,
+    .carousel-wrapper:hover .groupReverse {
+      animation-play-state: paused;
+    }
+  }
+
+  .card {
+    height: 170px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .carousel-wrapper::before,
+  .carousel-wrapper::after {
+    width: 20%;
+  }
+}

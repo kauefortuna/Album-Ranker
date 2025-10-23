@@ -1,5 +1,6 @@
 import React from "react";
 import "./Carousel.css";
+import "./mobile.css";
 
 function Carousel({ AlbumsArray, setSelectedAlbum }) {
   return (
