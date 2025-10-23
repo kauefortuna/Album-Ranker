@@ -1,6 +1,9 @@
 // spotifyAuth.js
 const clientId = "198f3046d64c4939a13ea8578b392fe0";
-const redirectUri = `${window.location.origin}/`;
+const redirectUri =
+  import.meta.env.PROD
+    ? "https://kauefortuna.github.io/"
+    : "http://127.0.0.1:5173/";
 const scopes = ["user-top-read", "user-read-private", "user-read-email"];
 
 // Generate a random string
