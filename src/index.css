@@ -1,0 +1,427 @@
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.AppMain {
+margin: 20px 0;
+text-align: center;
+  align-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  
+}
+
+.AlbumsContainer{
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row; 
+  padding: 40px;
+  column-gap: 25px;
+  flex-wrap: wrap;
+  row-gap: 25px;
+  
+}
+body{
+    background-color: rgb(45, 10, 49);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.AlbumCard{
+    background-color: rgba(105, 63, 118, 0.6);
+    padding: 0;
+    border: 0;
+    width: 240px;
+    height: 300px;
+    border-radius: 10px;
+    flex: 0 0 240px;  
+}
+
+.AlbumCover{
+    margin: 19px 0 0 0;
+    border-radius: 10px;
+    max-height:190px;
+    max-width:200px;
+    min-height:180px;
+}
+
+.AlbumCoverCarousel{
+    margin: -15px 0 0 0;
+    border-radius: 10px;
+    max-width:280px;
+    min-height:200px;
+}
+
+.AlbumDescript{
+    margin:8px;
+    color: rgb(244, 238, 243);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.ArtistName{
+    font-weight: normal;
+}
+
+.active-btn{
+    border-radius: 15px;
+    margin:0 10px 30px 10px;
+}
+
+/* Main card: image/info on left, songs on right */
+.RateAlbumCard {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 70%;
+  max-width: 1200px;
+  height: 65%;
+  max-height: 700px;
+  padding: 2.5%;
+  background: rgba(25, 25, 25, 0.95);
+  border-radius: 2%;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  color: white;
+  overflow-y: auto;        /* allow scroll for small screens */
+  scrollbar-gutter: stable both-edges; /* keeps layout stable */
+}
+.RateAlbumCard::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* The track (background area of scrollbar) */
+.RateAlbumCard::-webkit-scrollbar-track {
+  background: transparent;        /* keep it invisible */
+  margin: 10px 10px 10px 0;                 /* optional: add top/bottom padding */
+  padding-right: 10px;            /* creates the inward offset */
+  background-clip: content-box;   /* ensures padding shifts the thumb inward */
+}
+
+/* The draggable scrollbar thumb */
+.RateAlbumCard::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  border-right: 10px solid transparent; /* visually moves it inward */
+  background-clip: content-box;
+}
+
+/* Hover effect */
+.RateAlbumCard::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Left section: image + info stacked with flexbox */
+.RateAlbumLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* center horizontally */
+  justify-content: flex-start;
+  gap: 1em;               /* spacing between image and text */
+  width: 40%;             /* portion of the card width */
+  max-width: 350px;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+/* Album image */
+.RateAlbumCover {
+  width: 100%;            /* takes full width of its flex parent */
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+/* Album info below image */
+.RateAlbumInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  width: 100%;
+}
+
+.RateAlbumInfo h2 {
+  margin: 0.5em 0;
+  font-size: 1.6rem;
+}
+
+.RateAlbumInfo p {
+  color: #ccc;
+  font-size: 1rem;
+  margin: 0;
+}
+
+
+
+/* Song list (right side) */
+.songsBox {
+  flex-grow: 1;
+  height: 85%;             /* ensures scroll region remains visible */
+  min-height: 200px;
+  overflow-y: auto;         /* scrollbar always active when needed */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 1% 2% 1% 0;
+  margin-top: 3%;
+  margin-right: 3%;
+}
+
+/* Each song entry */
+.songCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6em 1em;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.songCard:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.songCard p {
+  margin: 0;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+/* Scrollbar styling */
+.songsBox::-webkit-scrollbar {
+  width: 6px;
+}
+.songsBox::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+.songsBox::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .RateAlbumCard {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    height: auto;
+    max-height: none;
+    padding: 5%;
+  }
+
+  .RateAlbumCover {
+    width: 60%;
+    margin: 0 0 3% 0;
+  }
+
+  .RateAlbumInfo {
+    position: static;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 3%;
+  }
+
+  .songsBox {
+    width: 90%;
+    height: 50vh;          /* fixed scrollable region for mobile */
+    margin: 0 auto 2%;
+  }
+
+  .RateAlbumInfo h2 {
+    font-size: 4vw;
+  }
+
+  .RateAlbumInfo p,
+  .songCard p {
+    font-size: 2.5vw;
+  }
+}
+
+
+
+
+
+.CloseButton {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+  z-index: 10000;
+}
+
+.CloseButton:hover {
+  transform: scale(1.2);
+  color: #ff4d4d;
+}
+
+
+.rating {
+  display: flex;
+  flex-direction: row;      /* stars or buttons in a row */
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 100%;              /* matches .RateAlbumInfo width */
+  max-width: 330px;
+  text-align: left;
+
+  margin-top: 0.5em; 
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  float: right;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.rating label:before {
+  content: "\2605";
+  font-size: 39px;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+  color: #ffd700;
+  transition: color 0.3s;
+}
+
+
+.niceButton {
+  background: linear-gradient(135deg, rgb(183, 65, 207), #6b2d8c);
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.7em 1em;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.5px;
+  margin-top: 2em;
+}
+
+/* Hover: brighter glow + slight lift */
+.niceButton:hover {
+  transform: translateY(-1.5px);
+}
+
+/* Active: pressed look */
+.niceButton:active {
+  transform: translateY(1px);
+}
+
+
+/* Main header container */
+.HeaderBar {
+  display: flex;
+  align-items: center;       /* vertically center all items */
+  justify-content: space-between;
+  width: 95%;
+  margin: 0 auto 2%;
+  padding: 1% 2%;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+/* Title (left) */
+.HeaderBar h1 {
+  flex: 1 1 25%;
+  text-align: left;
+  margin: 0;                 /* remove default browser margins */
+  font-size: 2vw;
+  line-height: 1;            /* ensures vertical alignment */
+  display: flex;
+  align-items: center;       /* centers text vertically inside flex cell */
+}
+
+/* Search bar (center) */
+.HeaderSearch {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;       /* vertically center the search bar */
+}
+
+.HeaderSearch input {
+  width: 80%;
+  max-width: 400px;
+}
+
+/* Buttons (right) */
+.HeaderButtons {
+    
+ padding-top:2%;
+  flex: 1 1 25%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;       /* vertically center buttons */
+  gap: 2%;
+}
+
+/* Button style */
+.HeaderButtons .active-btn {
+  background: linear-gradient(135deg, #c662da, #764690);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1;            /* keeps buttons aligned */
+}
+
+.HeaderButtons .active-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .HeaderBar {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .HeaderBar h1 {
+    flex: none;
+    text-align: center;
+    font-size: 5vw;
+  }
+
+  .HeaderSearch {
+    flex: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .HeaderButtons {
+    flex: none;
+    justify-content: center;
+  }
+}

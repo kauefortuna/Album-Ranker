@@ -1,0 +1,91 @@
+
+.carousel{
+    margin: 10px auto;
+    width: 100%;
+    display : flex;
+    overflow-x: auto;
+}
+.carousel::-webkit-scrollbar{
+    display:none;
+}
+
+.group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: spin 30s infinite linear;
+    padding-right: 1em;
+}
+.groupReverse{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: spin2 30s  linear infinite;
+    padding-right: 1em;
+}
+
+.group:hover,
+.groupReverse:hover,
+.carousel-wrapper:hover .group,
+.carousel-wrapper:hover .groupReverse {
+  animation-play-state:paused;
+}
+
+.card {
+  flex: 0 0 5em;
+  height: 350px;
+  padding: 15px;
+  font-size: 3rem;
+  border-radius: 15px;
+  text-align: center;
+  align-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.2);
+  z-index: 3; /* ensure it appears above neighbors */
+}
+
+
+@keyframes spin {
+    from {translate:0;}
+    to {translate: -100%;}
+}
+@keyframes spin2 {
+    from {translate:-100%;}
+    to {translate: 0;}
+}
+
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden; 
+}
+
+
+.carousel-wrapper::before,
+.carousel-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 15%; 
+  height: 100%;
+  z-index: 2; 
+  pointer-events: none; 
+}
+
+.carousel-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(136, 90, 179,0.4), rgba(248, 248, 248, 0));
+}
+
+.carousel-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(136, 90, 179,0.4), rgba(248, 248, 248, 0));
+}
+
+
+
