@@ -1,6 +1,7 @@
 import SearchBar from "./components/SearchBar";
 import AlbumCard from "./components/AlbumCard";
 import "./index.css";
+import "./mobile.css";
 import { useState, useEffect, useRef } from "react";
 import DarkVeil from "./DarkVeil.jsx";
 import Iridescence from "./Iridescence.jsx";

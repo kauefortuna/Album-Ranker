@@ -1,0 +1,148 @@
+/* mobile.css — optimized for screens up to 600px wide */
+@media (max-width: 600px) {
+
+  html, body, #root {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-size: 90%;
+    background-color: rgb(45, 10, 49);
+  }
+
+  /* Main app container */
+  .AppMain {
+    margin: 5% 0;
+    padding: 0 3%;
+  }
+
+  /* Album grid */
+  .AlbumsContainer {
+    flex-direction: column;
+    align-items: center;
+    padding: 5%;
+    row-gap: 6%;
+    column-gap: 0;
+  }
+
+  /* Album cards smaller */
+  .AlbumCard {
+    width: 70%;
+    height: auto;
+    padding: 3%;
+    border-radius: 6%;
+  }
+
+  .AlbumCover {
+    max-width: 80%;
+    max-height: 40%;
+    min-height: auto;
+    border-radius: 10%;
+  }
+
+  .AlbumDescript {
+    font-size: 3.5vw;
+    margin: 2% 0;
+  }
+
+  /* Header layout stacks vertically */
+  .HeaderBar {
+    flex-direction: column;
+    width: 100%;
+    gap: 3%;
+    padding: 2% 4%;
+  }
+
+  .HeaderBar h1 {
+    font-size: 6vw;
+    text-align: center;
+  }
+
+  .HeaderSearch {
+    width: 90%;
+    margin: 2% auto;
+  }
+
+  .HeaderSearch input {
+    width: 100%;
+    font-size: 1rem;
+    padding: 2%;
+  }
+
+  .HeaderButtons {
+    justify-content: center;
+    gap: 4%;
+  }
+
+  .HeaderButtons .active-btn {
+    padding: 3% 6%;
+    font-size: 3.5vw;
+    border-radius: 10px;
+  }
+
+  /* Rating card */
+  .RateAlbumCard {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    padding: 5%;
+  }
+
+  .RateAlbumLeft {
+    width: 80%;
+    max-width: none;
+  }
+
+  .RateAlbumCover {
+    width: 100%;
+    max-height: 40vh;
+  }
+
+  .RateAlbumInfo h2 {
+    font-size: 5vw;
+  }
+
+  .RateAlbumInfo p {
+    font-size: 3.5vw;
+  }
+
+  .songsBox {
+    width: 90%;
+    height: 45vh;
+    margin-top: 5%;
+  }
+
+  .songCard p {
+    font-size: 3.5vw;
+  }
+
+  /* Buttons smaller */
+  .niceButton {
+    font-size: 3.5vw;
+    padding: 3% 6%;
+    border-radius: 10px;
+    margin-top: 5%;
+  }
+
+  .CloseButton {
+    font-size: 1.4rem;
+    top: 10px;
+    right: 15px;
+  }
+
+  /* Carousel images */
+  .AlbumCoverCarousel {
+    max-width: 80%;
+    min-height: auto;
+    margin: 2% 0;
+  }
+
+  /* Adjust rating stars */
+  .rating label:before {
+    font-size: 5vw;
+  }
+}
