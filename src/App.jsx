@@ -129,7 +129,7 @@ function App() {
     if (!token) return;
 
     fetch(
-      "https://api.spotify.com/v1/me/top/tracks?limit=24&time_range=long_term",
+      "https://api.spotify.com/v1/me/top/tracks?limit=36&time_range=long_term",
       {
         headers: { Authorization: `Bearer ${token}` },
       }
@@ -152,7 +152,7 @@ function App() {
             }
           }
 
-          setAlbums(uniqueAlbums.slice(0, 24));
+          setAlbums(uniqueAlbums.slice(0, 36));
         } else {
           console.error("Error fetching top tracks:", data);
         }
