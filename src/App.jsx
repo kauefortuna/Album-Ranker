@@ -59,7 +59,7 @@ function App() {
     for (const range of timeRanges) {
       try {
         const response = await fetch(
-          `https://api.spotify.com/v1/me/top/tracks?limit=24&time_range=${range}`,
+          `https://api.spotify.com/v1/me/top/tracks?limit=36&time_range=${range}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
