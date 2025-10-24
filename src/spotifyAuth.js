@@ -66,6 +66,6 @@ export async function getAccessToken() {
 
   const data = await response.json();
   localStorage.setItem("spotify_token", data.access_token);
-  window.history.replaceState({}, document.title, "/"); // clean URL
+  window.history.replaceState({}, document.title, redirectUri); // clean URL
   return data.access_token;
 }
